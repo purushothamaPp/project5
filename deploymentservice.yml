@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: azureproject
+    labels:
+       env: prod
+       app: app-1
+spec:
+   replicas: 2
+   selector:
+       matchLabels:
+           env: prod
+           app: app-2
+   template:
+       metadata:
+           labels:
+              env: prod
+              app: app-2
+       spec:
+          containers:
+              - name: maven
+                image: purushothamareddy/azureproject
+                ports:
+                  - containerPort: 8080
+                  
+                  
+ 
+---
+apiVersion: v1
+kind: Service
+metadata:
+     name: azureproject
+     labels:
+         env: prod
+         app: app-2
+spec:
+  selector:
+      app: app-2
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer    
