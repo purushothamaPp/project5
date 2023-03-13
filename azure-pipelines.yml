@@ -26,3 +26,4 @@ steps:
   inputs:
     command: 'build'
     Dockerfile: '**/Dockerfile'
+    arguments: '-t purushothamareddy/yaml:1.0'
