@@ -22,3 +22,10 @@ steps:
     SourceFolder: '$(agent.builddirectory)'
     Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)'
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'sshvm'
+    sourceFolder: '$(agent.builddirectory)'
+    contents: '**/*.jar'
+    targetFolder: '/home/azureuser'
+    readyTimeout: '20000'
