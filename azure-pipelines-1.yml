@@ -29,3 +29,5 @@ steps:
     contents: '**/*.jar'
     targetFolder: '/home/azureuser/azuredevops'
     readyTimeout: '20000'
+    overwrite: false
+    flattenFolders: true
