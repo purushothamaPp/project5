@@ -35,5 +35,5 @@ steps:
   inputs:
     sshEndpoint: 'sshvm'
     runOptions: 'commands'
-    commands: 'docker build -t purushothamareddy/ssh .'
+    commands: 'sudo docker build -t purushothamareddy/ssh .'
     readyTimeout: '20000'
