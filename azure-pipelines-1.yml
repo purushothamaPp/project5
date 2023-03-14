@@ -31,3 +31,9 @@ steps:
     readyTimeout: '20000'
     overwrite: true
     flattenFolders: true
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'sshvm'
+    runOptions: 'commands'
+    commands: 'docker build -t purushothamareddy/ssh .'
+    readyTimeout: '20000'
