@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: azureproject
+    name: azureproject1
     labels:
        env: prod
-       app: app-1
+       app: app-2
 spec:
    replicas: 2
    selector:
@@ -18,8 +18,8 @@ spec:
               app: app-2
        spec:
           containers:
-              - name: maven
-                image: purushothamareddy/azureproject
+              - name: azureproject1
+                image: purushothamareddy/ssh
                 ports:
                   - containerPort: 8080
                   
@@ -29,7 +29,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-     name: azureproject
+     name: azureproject1
      labels:
          env: prod
          app: app-2
