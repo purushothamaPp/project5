@@ -22,6 +22,12 @@ steps:
     SourceFolder: '$(agent.builddirectory)'
     Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)'
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'sshvm'
+    runOptions: 'commands'
+    commands: 'sudo systemctl start docker'
+    readyTimeout: '20000'
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'sshvm'
